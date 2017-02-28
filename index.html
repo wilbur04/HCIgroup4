@@ -2,17 +2,49 @@
 <html>
 <head>
     <meta charset='UTF-8'>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>A simple Document Management System</title>
     <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
     <script src='js/dms.js'></script>
     <script src='js/ui.js'></script>
     <script src='js/bindings.js'></script>
     <script src='js/config.js'></script>
+    <script src="js/bootstrap.js"></script>
     <link rel='stylesheet' type='text/css' href='css/style.css' />
     <link rel="stylesheet" type="text/css" href="css/bootstrap.css"/>
 
 </head>
 <body>
+<!-- navigation bar -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#Navdrop">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <h1 class="">LOGO</h1>
+        </div>
+
+        <!-- items in nav bar-->
+        <div class="collapse navbar-collapse" id="Navdrop">
+            <ul class="nav navbar-nav navbar-left">
+                <li ><a href=#>
+                    <span style="font-size: 3em" class="glyphicon glyphicon-plus"></span>
+                </a></li>
+                <li><a href=#>
+                    <span style="font-size: 3em" class="glyphicon glyphicon-cloud"></span>
+                </a></li>
+            </ul>
+        </div>
+
+    </div>
+    </nav>
+
+<h1>\n hello \n</h1>
+<!--logout -->
 <div id='loggedOut'>
     <input type='text' id='userName' value='user name'/>
     <button type='button' id='logInButton'>Log in</button>
