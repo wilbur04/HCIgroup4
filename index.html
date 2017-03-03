@@ -12,58 +12,86 @@
     <link rel='stylesheet' type='text/css' href='css/bootstrap.css'/>
     <link rel='stylesheet' type='text/css' href='css/bootstrap-theme.css'/>
     <link rel='stylesheet' type='text/css' href='css/style.css' />
+
+
 </head>
 <body>
-<div id='loggedOut' class="container">
-    <form class="form-horizontal" role="form">
-        <div class="form-group">
-            <label for="userName" class="col-sm-2 control-label">Username</label>
-            <div class="col-sm-10">
-                <input type='text' id='userName' class="form-control" value='username'/>
+    <div id='loggedOut' class="container">
+        <form class="form-horizontal" role="form">
+            <div class="form-group">
+                <label for="userName" class="col-sm-2 control-label">Username</label>
+                <div class="col-sm-10">
+                    <input type='text' id='userName' class="form-control" value='username'/>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="passwordInput" class="col-sm-2 control-label">Password</label>
+                <div class="col-sm-10">
+                    <input type="password" class="form-control" id="passwordInput" placeholder="password"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <button type='button' id='logInButton' class="btn btn-success btn-sm">Log in</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div id='loggedIn'>
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+        
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#Navdrop">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <h1 class="">LOGO   </h1>
+                </div>
+        
+                <!-- items in nav bar!!-->
+                <div class="collapse navbar-collapse" id="Navdrop">
+                    <ul class="nav navbar-nav navbar-left">
+                        <li ><a href=#>
+                            <span style="font-size: 3em" class="glyphicon glyphicon-plus"></span>
+                        </a></li>
+                        <li><a href=#>
+                            <span style="font-size: 3em" class="glyphicon glyphicon-cloud"></span>
+                        </a></li>
+                    </ul>
+                </div>
+        
+            </div>
+        </nav>
+        <div id='userPane'>
+            <span id='loggedInAs'></span>
+            <button type='button' id='logOutButton'>Log out</button>
+        </div>
+        <div id='adminPane'>
+            <button type='button' id='resetButton'>Reset</button>
+            <button type='button' id='addDefaultObjectsButton'>Add default documents and tags</button>
+        </div>
+        <div id='documentsPane'>
+            <div id='documentsMenu'>
+                <button type='button' id='uploadDocumentButton'>Upload document</button>
+                <button type='button' id='listDocumentsButton'>List all documents</button>
+            </div>
+            <div id='documentsMain'>
+                <div id='uploadDocumentPane'></div>
+                <div id='listDocumentsPane'></div>
             </div>
         </div>
-        <div class="form-group">
-            <label for="passwordInput" class="col-sm-2 control-label">Password</label>
-            <div class="col-sm-10">
-                <input type="password" class="form-control" id="passwordInput" placeholder="password"/>
+        <div id='tagsPane'>
+            <div id='tagsMenu'>
+                <button type='button' id='newTagButton'>Create new tag</button>
+                <button type='button' id='listTagsButton'>List all tags</button>
+            </div>
+            <div id='tagsMain'>
+                <div id='createTagPane'></div>
+                <div id='listTagsPane'></div>
             </div>
         </div>
-        <div class="form-group">
-            <div class="col-sm-offset-2 col-sm-10">
-                <button type='button' id='logInButton' class="btn btn-success btn-sm">Log in</button>
-            </div>
-        </div>
-    </form>
-</div>
-<div id='loggedIn'>
-    <div id='userPane'>
-        <span id='loggedInAs'></span>
-        <button type='button' id='logOutButton'>Log out</button>
     </div>
-    <div id='adminPane'>
-        <button type='button' id='resetButton'>Reset</button>
-        <button type='button' id='addDefaultObjectsButton'>Add default documents and tags</button>
-    </div>
-    <div id='documentsPane'>
-        <div id='documentsMenu'>
-            <button type='button' id='uploadDocumentButton'>Upload document</button>
-            <button type='button' id='listDocumentsButton'>List all documents</button>
-        </div>
-        <div id='documentsMain'>
-            <div id='uploadDocumentPane'></div>
-            <div id='listDocumentsPane'></div>
-        </div>
-    </div>
-    <div id='tagsPane'>
-        <div id='tagsMenu'>
-            <button type='button' id='newTagButton'>Create new tag</button>
-            <button type='button' id='listTagsButton'>List all tags</button>
-        </div>
-        <div id='tagsMain'>
-            <div id='createTagPane'></div>
-            <div id='listTagsPane'></div>
-        </div>
-    </div>
-</div>
 </body>
 </html>
