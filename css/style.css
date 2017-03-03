@@ -47,6 +47,8 @@ body {
     cursor:pointer;
 }
 
+
+
 .document-name:hover {
     background-color: #aaaaaa;
 }
@@ -102,3 +104,12 @@ body {
 .event-date {}
 
 .event-description {}
+
+/* Darren- adds padding to top of element */
+.padding-top{
+    padding-top: 5%;
+}
+
+.padding-bottom{
+    padding-bottom: 2%;
+}
