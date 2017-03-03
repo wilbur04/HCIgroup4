@@ -113,3 +113,7 @@ body {
 .padding-bottom{
     padding-bottom: 2%;
 }
+
+.max-icon-width{
+    max-width: 400px;
+}
