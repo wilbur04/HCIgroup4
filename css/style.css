@@ -1,6 +1,50 @@
+/*
+colours I was thinking of
+
+#0A6A7F            text
+#f5f5f5            background
+#41a2ff           0a1575
+#707D7F            grey
+#10AACC            blue2
+*/
+
+
+
 body {
     width: 100%;
     margin: auto;
+    background-color: #f5f5f5  ;
+}
+/* using button rather than btn from bootstrap because all methods from Bindings.js
+ are making use of <button> */
+button{
+    border-radius: 30px;
+    background-color: #0a517f;
+    color: #f5f5f5;
+    text-transform: uppercase;
+    font-family: 'Open Sans','Helvetica Neue',Arial,sans-serif;
+    font-weight: 700;
+    padding: 10px 20px;
+}
+Button:hover {
+    transition: all 0.7s ease 0s;
+    background-color: #1081cc;
+}
+Button:active {
+    position:relative;
+    top:1px;
+}
+h1:hover{
+    color: #f5f5f5;
+}
+
+input{
+    border:none;
+    border-bottom: 2px solid #f1f1f1;
+}
+
+span{
+    color: #0a517f;
 }
 
 #userPane {
@@ -102,3 +146,9 @@ body {
 .event-date {}
 
 .event-description {}
+
+
+/* nav bar*/
+.navbar-default{
+    background-color: #41a2ff ;
+}

@@ -190,8 +190,8 @@
 }
 
 .navbar-default {
-    background-image: -webkit-linear-gradient(top, #4dffe9 0%, #f8f8f8 100%);
-    background-image: linear-gradient(to bottom, #4dffe9 0%, #f8f8f8 100%);
+    background-image: -webkit-linear-gradient(top, #41a2ff 0%, #e0f3ff 100%);
+    background-image: linear-gradient(to bottom, #41a2ff 0%, #e0f3ff 100%);
     background-repeat: repeat-x;
     border-radius: 4px;
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffffff', endColorstr='#fff8f8f8', GradientType=0);
