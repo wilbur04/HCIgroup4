@@ -114,7 +114,7 @@ $(document).ready(function() {
   
   // Document management *******************************************************
   
-  $('#uploadDocumentButton').click(function () {
+  $('#uploadDocumentButton').onfocus(function () {
     let uploadDocumentPane = $('#uploadDocumentPane');
     uploadDocumentPane.empty().show().siblings().hide();
 
@@ -196,7 +196,7 @@ $(document).ready(function() {
   });
   
   // Tag management ************************************************************
-  
+
   $('#newTagButton').click(function () {
     let createTagPane = $('#createTagPane');
     createTagPane.empty().show().siblings().hide();
@@ -208,7 +208,7 @@ $(document).ready(function() {
 
     let additionalOwners = $('<input/>', { type: 'text' });
     addProperty(details, 'Additional owners', additionalOwners);
-    
+
     let description = $('<textarea/>');
     addProperty(details, 'Description', description);
 
@@ -225,7 +225,7 @@ $(document).ready(function() {
         });
       }
     });
-    
+
     createTagPane.append(details).append(createTagButton);
   });
 

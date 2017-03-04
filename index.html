@@ -9,7 +9,7 @@
     <script src='js/ui.js'></script>
     <script src='js/bindings.js'></script>
     <script src='js/config.js'></script>
-    <script src='bootstrap.js'></script>
+    <script src='js/bootstrap.js'></script>
     <link rel='stylesheet' type='text/css' href='css/bootstrap.css'/>
     <link rel='stylesheet' type='text/css' href='css/bootstrap-theme.css'/>
     <link rel='stylesheet' type='text/css' href='css/style.css' />
@@ -58,13 +58,15 @@
                             <span style="font-size: 3em" class="glyphicon glyphicon-plus"></span>
                         </a></li>
                         <li><a href=#>
-                            <span style="font-size: 3em" class="glyphicon glyphicon-cloud"></span>
+                            <span style="font-size: 3em" class="glyphicon glyphicon-cloud" data-toggle="modal" data-target="#uploadModal"></span>
                         </a></li>
                     </ul>
                 </div>
 
             </div>
         </nav>
+        <h1>.\n\n\n</h1>
+        <h1>.</h1>
         <div id='userPane'>
             <span id='loggedInAs'></span>
             <button type='button' id='logOutButton'>Log out</button>
@@ -75,11 +77,11 @@
         </div>
         <div id='documentsPane'>
             <div id='documentsMenu'>
-                <button type='button' id='uploadDocumentButton'>Upload document</button>
+                <button type='button' >Upload document</button>
                 <button type='button' id='listDocumentsButton'>List all documents</button>
             </div>
             <div id='documentsMain'>
-                <div id='uploadDocumentPane'></div>
+               <!-- <div id='uploadDocumentPane'></div> -->
                 <div id='listDocumentsPane'></div>
             </div>
         </div>
@@ -94,5 +96,32 @@
             </div>
         </div>
     </div>
+
+
+
+    <!-- Modal -->
+
+    <!-- upload documents -->
+    <div class="modal fade" id="uploadModal" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Upload new file</h4>
+                </div >
+                <div id='uploadDocumentButton'>
+                    <div class="modal-body" id='uploadDocumentPane'></div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
 </body>
 </html>

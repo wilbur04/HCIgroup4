@@ -112,6 +112,7 @@ class Callback {
 // Events **********************************************************************
 
 class DMSEvent {
+
   constructor(description) {
     this.description = description;
     this.date = new Date();
