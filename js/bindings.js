@@ -114,7 +114,7 @@ $(document).ready(function() {
   
   // Document management *******************************************************
   
-  $('#uploadDocumentButton').onfocus(function () {
+  $('#uploadDocumentButton').show(function () {
     let uploadDocumentPane = $('#uploadDocumentPane');
     uploadDocumentPane.empty().show().siblings().hide();
 
