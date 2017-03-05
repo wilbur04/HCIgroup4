@@ -46,6 +46,10 @@ input{
 span{
     color: #0a517f;
 }
+span:hover{
+    transition: all 0.7s ease 0s;
+    color: #f5f5f5;
+}
 
 #userPane {
     width: 49%;
@@ -148,7 +152,9 @@ span{
 .event-description {}
 
 
-/* nav bar*/
+/* nav bar */
 .navbar-default{
     background-color: #41a2ff ;
 }
+
+
