@@ -20,24 +20,29 @@
 </head>
 <body>
     <!-- log in screen  -->
-    <div id='loggedOut' class="container">
+    <div id='loggedOut' class="container vertical-center">
         <!-- Login card -->
-        <div class="panel panel-default" style="width: 80%">
+        <div class="panel center-block" style="width: 80%">
+            
+            <div class="panel panel-heading text-center">
+                Document Management System
+            </div>
+            
             <!-- Image-->
             <div class="panel-heading">
-                <img class="" src="" alt="insert pic here">
+                <img width="40%" class="center-block img-thumbnail image-sizing" src="res/img/userIconLogInScreen.png" alt="insert pic here">
             </div>
             
             <!-- Form -->
             <div class="modal-body">
                 <!-- User Name box-->
-                <div class="has-feedback">
+                <div class="has-feedback form-group">
                     <input type='text' id='userName' class="form-control" placeholder="Username"/>
                     <span class="form-control-feedback glyphicon glyphicon-user"></span>
                 </div>
     
                 <!--password input-->
-                <div class="has-feedback">
+                <div class="has-feedback form-group">
                     <input type="password" class="form-control" id="passwordInput" placeholder="Password"/>
                     <span class="form-control-feedback glyphicon glyphicon-asterisk"></span>
                 </div>
@@ -47,7 +52,7 @@
             <div class="panel-footer">
                 <!--login button-->
                 <div class="">
-                    <button type='button' id='logInButton' class="btn btn-success">Log in</button>
+                    <button type='button' id='logInButton' class="btn btn-success btn-block">Log in</button>
                 </div>
             </div>
         </div>

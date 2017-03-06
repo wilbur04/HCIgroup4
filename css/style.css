@@ -108,4 +108,17 @@ body {
 
 /* Darren- styles the login page */
 
+.image-sizing{
+    max-width: 300px;
+}
+@media (min-width:400px){
+    .container{
+        width:370px;
+    }
+}
+
+.vertical-center{
+    margin-top: 5%;
+    margin-bottom: auto;
+}
 /* ------------------ End of Darren Style -----------*/
