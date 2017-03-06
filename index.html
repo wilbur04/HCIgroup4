@@ -17,28 +17,35 @@
 </head>
 <body>
     <!-- log in screen  -->
-    <div id='loggedOut' class="container ">
-        <!-- User Icon Picture -->
-        <div class="container">
-            <img width="50%" src="res/img/userIconLogInScreen.png" class="img-circle img-responsive center-block padding-top padding-bottom">
-        </div>
+    <div id='loggedOut' class="container centre-screen login-style">
         <!-- Login form -->
         <form class="form-horizontal" role="form">
+
+            <!--place image-->
+            <div>
+                <img src="res/img/userIconLogInScreen.png" class="btn-block img-style img-circle">
+            </div>
+
+            <!-- User Name box-->
             <div class="form-group">
                 <label for="userName" class="col-sm-2 control-label">Username</label>
                 <div class="col-sm-10">
                     <input type='text' id='userName' class="form-control" placeholder="Username"/>
                 </div>
             </div>
+
+            <!--password input-->
             <div class="form-group">
                 <label for="passwordInput" class="col-sm-2 control-label">Password</label>
                 <div class="col-sm-10">
                     <input type="password" class="form-control" id="passwordInput" placeholder="Password"/>
                 </div>
             </div>
+
+            <!--login button-->
             <div class="form-group">
-                <div class="col-sm-offset-2 col-sm-1">
-                    <button type='button' id='logInButton' class="btn btn-success btn-sm">Log in</button>
+                <div class="col-sm-offset-2 col-sm-10">
+                    <button type='button' id='logInButton' class="btn btn-success btn-sm btn-block">Log in</button>
                 </div>
             </div>
         </form>
