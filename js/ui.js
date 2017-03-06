@@ -94,12 +94,12 @@ function addDocumentFilterAsData (option, value, element) {
 
 function generateDocumentFilterItem (pane, filterList) {
   let filterItem = $('<li/>');
-  let criterion = $('<select/>')
+  let criterion = $('<select/>',{class:'form-control'})
       .append($('<option/>').text('name'))
       .append($('<option/>').text('owner'))
       .append($('<option/>').text('tag'))
       .append($('<option/>').text('date'));
-  let pattern = $('<input/>', { type: 'text' });
+  let pattern = $('<input/>', { type: 'text',class:'form-control' });
   let addFilterButton = $('<button/>', {
     type: 'button',
     text: 'Add filter',
@@ -150,6 +150,7 @@ function documentInformationPane (doc) {
 
   let owners = $('<input/>', {
     type: 'text',
+      class:'form-control',
     readonly: true
   }).val(doc.ownersToString());
   addProperty(details, 'Owners', owners);
@@ -161,6 +162,7 @@ function documentInformationPane (doc) {
 
   let tags = $('<input/>', {
     type: 'text',
+      class:'form-control',
     readonly: true
   }).val(doc.tagsToString());
   addProperty(details, 'Tags', tags);
@@ -170,6 +172,7 @@ function documentInformationPane (doc) {
   if (DMS.canEdit(doc)) {
     var isprivate = $('<input/>', {
       type: 'checkbox',
+        class:'form-control',
       disabled: true,
       checked: doc.isPrivate()
     });
@@ -189,6 +192,7 @@ function documentInformationPane (doc) {
       click: function () {
         $('<input/>', {
           type: 'file',
+            class:'form-control',
           change: function () {
             if ($(this).val() != doc.getFile()) {
               alert('The new version of the file should have the same name.');
@@ -296,7 +300,7 @@ function documentInformationPane (doc) {
     }
     commentsPane.append(commentList);
     
-    let newComment = $('<textarea/>');
+    let newComment = $('<textarea/>',{class:'form-control'});
     let addComment = $('<button/>', {
       type: 'button',
       text: 'Add comment',
@@ -395,11 +399,11 @@ function addTagFilterAsData (option, value, element) {
 
 let generateTagFilterItem = function (pane, filterList) {
   let filterItem = $('<li/>');
-  let criterion = $('<select/>')
+  let criterion = $('<select/>',{'class':'form-control'})
       .append($('<option/>').text('name'))
       .append($('<option/>').text('owner'))
       .append($('<option/>').text('date'));
-  let pattern = $('<input/>', { type: 'text' });
+  let pattern = $('<input/>', { type: 'text',class:'form-control' });
   let addFilterButton = $('<button/>', {
     type: 'button',
     text: 'Add filter',
@@ -449,12 +453,14 @@ function tagInformationPane (tag) {
 
   let owners = $('<input/>', {
     type: 'text',
+      class:'form-control',
     readonly: true
   }).val(tag.ownersToString());
   addProperty(details, 'Owners', owners);
   
   let description = $('<textarea/>', {
-    readonly: true
+    readonly: true,
+      class:'form-control'
   }).val(tag.getDescription());
   addProperty(details, 'Description', description);
 
