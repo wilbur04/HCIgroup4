@@ -107,32 +107,5 @@ body {
 .event-description {}
 
 /* Darren- styles the login page */
-.img-style {
-    text-align: center;
-    margin: 24px auto 12px auto;
-    position: relative;
-    width: 40%;
-}
 
-.max-div-width{
-    max-width: 300px;
-}
-
-.login-style{
-    border-radius: 10px;
-    border: 0.5px solid black ;
-    background-color: rgb(245, 245, 245);
-}
-
-.centre-screen{
-    background: rgba(55, 169, 247);
-    position:absolute;
-    top:50%;
-    left:50%;
-    padding:15px;
-    -ms-transform: translateX(-50%) translateY(-50%);
-    -webkit-transform: translate(-50%,-50%);
-    transform: translate(-50%,-50%);
-    max-width: 500px;
-}
 /* ------------------ End of Darren Style -----------*/
