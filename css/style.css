@@ -145,7 +145,7 @@ span:hover{
     max-width: 300px;
 }
 @media (min-width:400px){
-    .container{
+    .container-box{
         width:370px;
     }
 }
