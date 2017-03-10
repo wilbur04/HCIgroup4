@@ -1,7 +1,40 @@
+
 body {
     width: 100%;
     margin: auto;
+<<<<<<< HEAD
     background-color: rgb(234, 234, 234);
+=======
+    background-color: #f5f5f5  ;
+    font-family: 'Open Sans','Helvetica Neue',Arial,sans-serif;
+    /*TODO: change font and colours*/
+}
+/* using button rather than btn from bootstrap because all methods from Bindings.js
+ are making use of <button> */
+button{
+    border-radius: 30px;
+    background-color: #0a517f;
+    color: #f5f5f5;
+    text-transform: uppercase;
+    font-weight: 700;
+    padding: 10px 20px;
+}
+Button:hover {
+    transition: all 0.7s ease 0s;
+    background-color: #1081cc;
+}
+Button:active {
+    position:relative;
+    top:1px;
+}
+
+span{
+    color: #0a517f;
+}
+span:hover{
+    transition: all 0.7s ease 0s;
+    color: #f5f5f5;
+>>>>>>> master
 }
 
 #userPane {
@@ -122,3 +155,20 @@ body {
     margin-bottom: auto;
 }
 /* ------------------ End of Darren Style -----------*/
+
+/* nav bar */
+.navbar-default{
+    background-color: #41a2ff ;
+}
+
+/* LOGO */
+.logo{
+    text-shadow: #000 0px 0px 1px;
+    -webkit-font-smoothing: antialiased;
+    text-transform: uppercase;
+    font-weight: 900;
+}
+.logo:hover {
+    transition: all 1.5s ease 0s;
+    color: #f5f5f5;
+}

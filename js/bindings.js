@@ -114,22 +114,22 @@ $(document).ready(function() {
   
   // Document management *******************************************************
   
-  $('#uploadDocumentButton').click(function () {
+  $('#uploadDocumentButton').show(function () {
     let uploadDocumentPane = $('#uploadDocumentPane');
     uploadDocumentPane.empty().show().siblings().hide();
 
     let details = $('<table/>', { 'class': 'document-details' });
 
-    let file = $('<input/>', { type: 'file' });
+    let file = $('<input/>', { type: 'file', class:'form-control' });
     addProperty(details, 'File', file);
 
-    let additionalOwners = $('<input/>', { type: 'text' });
+    let additionalOwners = $('<input/>', { type: 'text', class:'form-control' });
     addProperty(details, 'Additional owners', additionalOwners);
     
-    let description = $('<textarea/>');
+    let description = $('<textarea/>',{class:'form-control'});
     addProperty(details, 'Description', description);
 
-    let tags = $('<input/>', { type: 'text' });
+    let tags = $('<input/>', { type: 'text', class:'form-control' });
     let generateTags = $('<button/>', {
       type: 'button',
       text: 'Generate tags',
@@ -142,6 +142,7 @@ $(document).ready(function() {
 
     let isprivate = $('<input/>', {
       type: 'checkbox',
+        class:'form-control',
       checked: true
     });
     addProperty(details, 'Is private', isprivate);
@@ -196,20 +197,20 @@ $(document).ready(function() {
   });
   
   // Tag management ************************************************************
-  
+
   $('#newTagButton').click(function () {
     let createTagPane = $('#createTagPane');
     createTagPane.empty().show().siblings().hide();
 
     let details = $('<table/>', { 'class': 'tag-details' });
 
-    let name = $('<input/>', { type: 'text' });
+    let name = $('<input/>', { type: 'text',class:'form-control' });
     addProperty(details, 'Name', name);
 
-    let additionalOwners = $('<input/>', { type: 'text' });
+    let additionalOwners = $('<input/>', { type: 'text',class:'form-control' });
     addProperty(details, 'Additional owners', additionalOwners);
-    
-    let description = $('<textarea/>');
+
+    let description = $('<textarea/>',{class:'form-control'});
     addProperty(details, 'Description', description);
 
     let createTagButton = $('<button/>', {
@@ -225,7 +226,7 @@ $(document).ready(function() {
         });
       }
     });
-    
+
     createTagPane.append(details).append(createTagButton);
   });
 
