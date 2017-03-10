@@ -2,13 +2,11 @@
 body {
     width: 100%;
     margin: auto;
-<<<<<<< HEAD
-    background-color: rgb(234, 234, 234);
-=======
     background-color: #f5f5f5  ;
     font-family: 'Open Sans','Helvetica Neue',Arial,sans-serif;
     /*TODO: change font and colours*/
 }
+/*edits by wilbur*/
 /* using button rather than btn from bootstrap because all methods from Bindings.js
  are making use of <button> */
 button{
@@ -35,6 +33,7 @@ span:hover{
     transition: all 0.7s ease 0s;
     color: #f5f5f5;
 }
+/*done edits by wilbur*/
 
 #userPane {
     width: 49%;
@@ -152,7 +151,7 @@ span:hover{
     margin-bottom: auto;
 }
 /* ------------------ End of Darren Style -----------*/
-
+/* ------------------ Start of Wilbur Style----------*/
 /* nav bar */
 .navbar-default{
     background-color: #41a2ff ;
@@ -184,7 +183,7 @@ span:hover{
 .search:focus {
     width: 25%;
 }
-@media (min-width: 768px) {
+@media (max-width: 768px) {
     .search{
         width:100%;
     }
@@ -192,3 +191,10 @@ span:hover{
         width: 100%;
     }
 }
+.no-background{
+    background-color: transparent;
+    font-weight: 600;
+    top: 0px;
+
+}
+/* ----------------- End of Wilbur Style --------------*/

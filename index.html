@@ -78,24 +78,33 @@
                             <span style="font-size: 3em" class="glyphicon glyphicon-plus navbar-btn"></span>
                         </a></li>
                         <li><a href=#>
-                            <span style="font-size: 3em" class="glyphicon glyphicon-cloud navbar-btn" data-toggle="modal" data-target="#uploadModal"></span>
+                            <span style="font-size: 3em" class="glyphicon glyphicon-cloud-upload navbar-btn" data-toggle="modal" data-target="#uploadModal"></span>
                         </a></li>
                     </ul>
+                    <div class="navbar-right">
+                        <ul class="nav navbar-nav navbar-left">
+                            <li>
+                                <button type='button' class="navbar-btn no-background" id='logOutButton'>Log out</button>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
 
             </div>
         </nav>
-
+        <!-- filter and search bar -->
         <nav id="filterbar" class="navbar">
-                <div class="container ">
-                    <input class="search form-control navbar-left">
-                </div>
+
+            <div class="container ">
+                <input class="search form-control navbar-right">
+            </div>
 
         </nav>
-        <div id='userPane'>
+
+        <div id='userPane' class="navbar-right">
             <span id='loggedInAs'></span>
-            <button type='button' id='logOutButton'>Log out</button>
         </div>
+
         <div id='adminPane'>
             <button type='button' id='resetButton'>Reset</button>
             <button type='button' id='addDefaultObjectsButton'>Add default documents and tags</button>
