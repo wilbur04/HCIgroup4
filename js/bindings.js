@@ -195,7 +195,27 @@ $(document).ready(function() {
     filterList.append(generateDocumentFilterItem(documentListPane, filterList));
     refreshDocumentList(documentListPane, filterList);
   });
-  
+
+
+    $('#search').keyup(function () {
+        if ($(this).val() != '') {
+            let listDocumentsPane = $('#listDocumentsPane');
+            listDocumentsPane.empty().show().siblings().hide();
+
+            let filterList = $('<ol/>', {
+                'class': 'document-filter-list'
+            }).appendTo(listDocumentsPane);
+            let documentListPane = $('<div/>', {
+                'class': 'document-list-pane'
+            }).appendTo(listDocumentsPane);
+
+            filterList.append(generateDocumentFilterItem(documentListPane, filterList));
+            refreshDocumentList(documentListPane, filterList);
+        }
+    });
+
+
+
   // Tag management ************************************************************
 
   $('#newTagButton').click(function () {
@@ -245,4 +265,21 @@ $(document).ready(function() {
     refreshTagList(tagListPane, filterList);
   });
 
+
+    $('#search').keyup(function () {
+        if ($(this).val() != '') {
+            let listTagsPane = $('#listTagsPane');
+            listTagsPane.empty().show().siblings().hide();
+
+            let filterList = $('<ol/>', {
+                'class': 'tag-filter-list'
+            }).appendTo(listTagsPane);
+            let tagListPane = $('<div/>', {
+                'class': 'tag-list-pane'
+            }).appendTo(listTagsPane);
+
+            filterList.append(generateTagFilterItem(tagListPane, filterList));
+            refreshTagList(tagListPane, filterList);
+        }
+    });
 });
