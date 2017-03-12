@@ -9,15 +9,12 @@ $(document).ready(function() {
     DMS.logIn($('#userName').val(), {
       onsuccess: function () {
         loggedOut.detach();
-        $(document.body).append(loggedIn.show());
+        $(document.body).append(loggedIn.show( function() {
+          $('#addDefaultObjectsButton').click();
+        }));
         
-        $('#loggedInAs')
-          .append('Logged in as ')
-          .append($('<span/>', {
-            'class': 'user-name'
-          }).text(DMS.getUserName()));
-        $('#documentsMain').children().empty().hide();
-        $('#tagsMain').children().empty().hide();
+        $('#loggedInAs').append('Logged in as ').append($('<span/>', {'class': 'user-name'}).text(DMS.getUserName()));
+        
       },
       onerror: function () {
         alert("Unable to log in.");
@@ -108,8 +105,8 @@ $(document).ready(function() {
       ['surfboard', 'wave', 'Peahi', 'Maui', 'Pe’ahi Challenge', 'Lyle Krannichfeld'],
     false);
 
-    $('#listDocumentsButton').click();
-    $('#listTagsButton').click();
+    //$('#listDocumentsButton').click();
+    //$('#listTagsButton').click();
   });
   
   // Document management *******************************************************
@@ -197,7 +194,7 @@ $(document).ready(function() {
   });
 
 
-    $('#search').keyup(function () {
+  $('#search').keyup(function () {
         if ($(this).val() != '') {
             let listDocumentsPane = $('#listDocumentsPane');
             listDocumentsPane.empty().show().siblings().hide();
@@ -264,9 +261,8 @@ $(document).ready(function() {
     filterList.append(generateTagFilterItem(tagListPane, filterList));
     refreshTagList(tagListPane, filterList);
   });
-
-
-    $('#search').keyup(function () {
+  
+  $('#search').keyup(function () {
         if ($(this).val() != '') {
             let listTagsPane = $('#listTagsPane');
             listTagsPane.empty().show().siblings().hide();

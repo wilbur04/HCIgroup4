@@ -90,49 +90,65 @@
                 </div>
             </div>
         </nav>
+        
         <div class="container-fluid">
-        <!-- filter and search bar -->
-        <nav id="filterbar" class="navbar">
-            <div class="container ">
-                <div class="has-feedback form-group">
-                    <input type="text" class="search form-control navbar-right" id="search", placeholder="Search">
-                    <span class="form-control-feedback glyphicon glyphicon-search"></span>
+            <!-- filter and search bar -->
+            <nav id="filterbar" class="navbar">
+                <div class="container ">
+                    <div class="has-feedback form-group">
+                        <input type="text" class="search form-control navbar-right" id="search", placeholder="Search">
+                        <span class="form-control-feedback glyphicon glyphicon-search"></span>
+                    </div>
+                </div>
+            </nav>
+            
+            <!-- Settings type of things  -->
+            <div>
+                <div id='userPane'>
+                    <span id='loggedInAs'></span>
+                </div>
+        
+                <div id='adminPane'>
+                    <button type='button' id='resetButton'>Reset</button>
+                    <button type='button' id='addDefaultObjectsButton'>Add default documents and tags</button>
                 </div>
             </div>
-
-        </nav>
-        <!--   -->
-        <div id='userPane' class="navbar-right">
-            <span id='loggedInAs'></span>
-        </div>
-
-        <div id='adminPane'>
-            <button type='button' id='resetButton'>Reset</button>
-            <button type='button' id='addDefaultObjectsButton'>Add default documents and tags</button>
-        </div>
-        
-        <div id='tagsPane'>
-            <div id='tagsMenu'>
-                <button type='button' id='newTagButton'>Create new tag</button>
-                <button type='button' id='listTagsButton'>List all tags</button>
+            
+            <!-- Documents and tags -->
+            <div>
+                <!-- Tags -->
+                <div id='tagsPane'>
+                    
+                    <!--Tags card-->
+                    <div class="panel panel-default">
+                        <div id='tagsMenu' class="panel-heading">
+                            <p id='listTagsButton'>Your Tags</p>
+                        </div>
+                        
+                        <div id='tagsMain'>
+                            <div id='listTagsPane'></div>
+                        </div>
+                        
+                        <div class="panel-footer">
+                            <a href='#' class="btn btn-default btn-sm">
+                                <span data-toggle="modal" data-target="#createTag" id="newTagButton" class="glyphicon glyphicon-tag"> Create</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div id='documentsPane'>
+                    <div id='documentsMenu'>
+                        <button type='button' >Upload document</button>
+                        <button type='button' id='listDocumentsButton'>List all documents</button>
+                    </div>
+                    <div id='documentsMain'>
+                       <!-- <div id='uploadDocumentPane'></div> -->
+                        <div id='listDocumentsPane'></div>
+                    </div>
+                </div>
             </div>
-            <div id='tagsMain'>
-                <div id='createTagPane'></div>
-                <div id='listTagsPane'></div>
-            </div>
         </div>
-        
-        <div id='documentsPane'>
-            <div id='documentsMenu'>
-                <button type='button' >Upload document</button>
-                <button type='button' id='listDocumentsButton'>List all documents</button>
-            </div>
-            <div id='documentsMain'>
-               <!-- <div id='uploadDocumentPane'></div> -->
-                <div id='listDocumentsPane'></div>
-            </div>
-        </div>
-    </div>
     </div>
 
 
@@ -156,6 +172,27 @@
                 </div>
             </div>
 
+        </div>
+    </div>
+    
+    <!-- create new tag -->
+    <div id="createTag" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            
+            <div class="modal-content">
+                <!-- The header to the pop up thing -->
+                <div class ="modal-header">
+                    <h4 class="modal-title">Create new Tag</h4>
+                </div>
+                
+                <div class='modal-body'>
+                    <div id='createTagPane'></div>
+                </div>
+                
+                <div class='modal-footer'>
+                    <p>footer</p>
+                </div>
+            </div>
         </div>
     </div>
 

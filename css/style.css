@@ -36,23 +36,31 @@ span:hover{
 /*done edits by wilbur*/
 
 #userPane {
-    width: 49%;
+    width: 30%;
     float: left;
+    border-style: solid;
+    border-color: rgb(0,0,0);
 }
 
 #adminPane {
-    width: 49%;
+    width: 70%;
     float: right;
+    border-style: solid;
+    border-color: rgb(255,0,0);
 }
 
 #documentsPane {
-    width: 49%;
-    float: left;
+    width: 70%;
+    float: right;
+    border-style: solid;
+    border-color: rgb(0,255,0);
 }
 
 #tagsPane {
-    width: 49%;
-    float: right;
+    width: 30%;
+    float: left;
+    border-style: solid;
+    border-color: rgb(0,0,255);
 }
 
 /* User management */
