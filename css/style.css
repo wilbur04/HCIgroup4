@@ -69,6 +69,8 @@ span:hover{
 }
 
 .document-list-pane li {
+
+    background: url('../res/img/img-icon.png') no-repeat center !important ;
     float:left;
     width:22%;
     heignt: 500px;
@@ -79,13 +81,12 @@ span:hover{
     margin-bottom: 2%;
     overflow: visible;
     border-radius: 5px;
-    padding-top: 20pt;
+    padding-top: 70pt;
     list-style-type: none;
     text-align: center;
 }
 .document-list-pane li:hover {
     transition: all 1.5s ease 0s;
-    background-color: #8f8f94;
     box-shadow: 0 8px 14px 0;
 }
 @media (max-width:1020px){
