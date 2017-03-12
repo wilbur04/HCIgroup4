@@ -38,29 +38,25 @@ span:hover{
 #userPane {
     width: 30%;
     float: left;
-    border-style: solid;
-    border-color: rgb(0,0,0);
+
 }
 
 #adminPane {
     width: 70%;
     float: right;
-    border-style: solid;
-    border-color: rgb(255,0,0);
+
 }
 
 #documentsPane {
     width: 70%;
     float: right;
-    border-style: solid;
-    border-color: rgb(0,255,0);
+
 }
 
 #tagsPane {
     width: 30%;
     float: left;
-    border-style: solid;
-    border-color: rgb(0,0,255);
+
 }
 
 /* User management */
