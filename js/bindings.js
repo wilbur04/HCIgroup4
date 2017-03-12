@@ -4,6 +4,10 @@ $(document).ready(function() {
 
   let loggedIn = $('#loggedIn');
   let loggedOut = $('#loggedOut');
+  let filterList = $('<ol/>', {'class': 'tag-filter-list'});
+  let tagListPane = $('<div/>', {'class': 'tag-list-pane'});
+  var firstFilter = 0;
+  let listTagsPane = $('#listTagsPane');
   
   $('#logInButton').click(function () {
     DMS.logIn($('#userName').val(), {
@@ -15,6 +19,8 @@ $(document).ready(function() {
         
         $('#loggedInAs').append('Logged in as ').append($('<span/>', {'class': 'user-name'}).text(DMS.getUserName()));
         
+        tagListPane.appendTo(listTagsPane);
+        refreshTagList(tagListPane, filterList);
       },
       onerror: function () {
         alert("Unable to log in.");
@@ -248,34 +254,54 @@ $(document).ready(function() {
   });
 
   $('#listTagsButton').click(function () {
-    let listTagsPane = $('#listTagsPane');
     listTagsPane.empty().show().siblings().hide();
 
-    let filterList = $('<ol/>', {
-      'class': 'tag-filter-list'
-    }).appendTo(listTagsPane);
-    let tagListPane = $('<div/>', {
-      'class': 'tag-list-pane'
-    }).appendTo(listTagsPane);
+    //filterList.empty();
+    
+    //filterList.appendTo(listTagsPane);
+    
+    tagListPane.appendTo(listTagsPane);
 
-    filterList.append(generateTagFilterItem(tagListPane, filterList));
+    //filterList.append(generateTagFilterItem(tagListPane, filterList));
     refreshTagList(tagListPane, filterList);
   });
   
   $('#search').keyup(function () {
-        if ($(this).val() != '') {
-            let listTagsPane = $('#listTagsPane');
-            listTagsPane.empty().show().siblings().hide();
+      if ($(this).val() != '') {
+          let listTagsPane = $('#listTagsPane');
+          listTagsPane.empty().show().siblings().hide();
 
-            let filterList = $('<ol/>', {
-                'class': 'tag-filter-list'
-            }).appendTo(listTagsPane);
-            let tagListPane = $('<div/>', {
-                'class': 'tag-list-pane'
-            }).appendTo(listTagsPane);
+          let filterList = $('<ol/>', {
+              'class': 'tag-filter-list'
+          }).appendTo(listTagsPane);
+          let tagListPane = $('<div/>', {
+              'class': 'tag-list-pane'
+          }).appendTo(listTagsPane);
 
-            filterList.append(generateTagFilterItem(tagListPane, filterList));
-            refreshTagList(tagListPane, filterList);
-        }
-    });
+          filterList.append(generateTagFilterItem(tagListPane, filterList));
+          refreshTagList(tagListPane, filterList);
+      }
+  });
+  
+  //Puts the filter tags section in the modal
+  $('#tagFilter').click(function () {
+    let filterPane = $('#tagFilterBody');
+    
+    //only create a filter search on first instance
+    if(firstFilter == 0){
+      filterPane.append(filterList);
+      filterList.append(generateTagFilterItem(tagListPane, filterList));
+      firstFilter = 1;
+    }
+    
+    refreshTagList(tagListPane, filterList);
+  })
+  
+  $('#removeFiltersButton').click(function () {
+    let filterPane = $('#tagFilterBody');
+    filterList.empty();
+    filterPane.append(filterList);
+    filterList.append(generateTagFilterItem(tagListPane, filterList));
+    refreshTagList(tagListPane, filterList);
+  })
 });

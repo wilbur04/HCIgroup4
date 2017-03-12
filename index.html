@@ -122,7 +122,13 @@
                     <!--Tags card-->
                     <div class="panel panel-default">
                         <div id='tagsMenu' class="panel-heading">
-                            <p id='listTagsButton'>Your Tags</p>
+                            <span id='listTagsButton' class='glyphicon glyphicon-tags'> Your Tags </span>
+                        </div>
+                        
+                        <div class="panel-body">
+                            <a class="btn btn-default btn-sm">
+                                <span data-toggle="modal" data-target="#filterTags" id="tagFilter" class="glyphicon glyphicon-plus"> Filter Tag</span>
+                            </a>
                         </div>
                         
                         <div id='tagsMain'>
@@ -131,7 +137,7 @@
                         
                         <div class="panel-footer">
                             <a href='#' class="btn btn-default btn-sm">
-                                <span data-toggle="modal" data-target="#createTag" id="newTagButton" class="glyphicon glyphicon-tag"> Create</span>
+                                <span data-toggle="modal" data-target="#createTag" id="newTagButton" class="glyphicon glyphicon-plus"> Create Tag</span>
                             </a>
                         </div>
                     </div>
@@ -190,7 +196,28 @@
                 </div>
                 
                 <div class='modal-footer'>
-                    <p>footer</p>
+                    <p>Close</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- add a tag filter -->
+    <div id='filterTags' class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Apply a Tag Filter</h4>
+                </div>
+                
+                <div class='modal-body'>
+                    <div id='tagFilterBody'></div>
+                </div>
+                
+                <div class='modal-footer'>
+                    <button type="button" class="btn btn-danger" id="removeFiltersButton">Remove Filters</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                 </div>
             </div>
         </div>
@@ -213,6 +240,5 @@
             </div>
 
         </div>
-    </div>
 </body>
 </html>
