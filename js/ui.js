@@ -32,7 +32,6 @@ function eventList (dmsObject) {
   return list;
 }
 
-
 function compileFiltersFromData (filterList) {
   let filters = [];
   for (let filterItem of filterList.find('li'))
@@ -42,7 +41,7 @@ function compileFiltersFromData (filterList) {
 }
 
 function dmsObjectList (prefix, infoPaneGenerator, filters, dmsForEach) {
-  let list = $('<ul/>');
+  let list = $('<ul/>', {'class' : 'list-group'});
   let callback = new Callback()
       .setCallback(function (dmsObject) {
         let name = $('<span/>', {
@@ -54,7 +53,7 @@ function dmsObjectList (prefix, infoPaneGenerator, filters, dmsForEach) {
         });
         let informationPane = infoPaneGenerator(dmsObject);
         informationPane.hide();
-        let item = $('<li/>').append(name).append(informationPane);
+        let item = $('<li/>', {'class':'list-group-item'}).append(name).append(informationPane);
         list.append(item);
       })
       .addFilters(filters);

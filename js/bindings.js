@@ -5,7 +5,7 @@ $(document).ready(function() {
   let loggedIn = $('#loggedIn');
   let loggedOut = $('#loggedOut');
   let filterList = $('<ol/>', {'class': 'tag-filter-list'});
-  let tagListPane = $('<div/>', {'class': 'tag-list-pane'});
+  let tagListPane = $('<div/>', {'class': 'tag-list-pane list-group'});
   var firstFilter = 0;
   let listTagsPane = $('#listTagsPane');
   
