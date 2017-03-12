@@ -174,7 +174,7 @@ span:hover{
 
 .event-description {}
 
-/* Darren- styles the login page */
+/*------------ Start of Darren Style -------------*/
 
 .image-sizing{
     max-width: 300px;
@@ -189,7 +189,14 @@ span:hover{
     margin-top: 5%;
     margin-bottom: auto;
 }
+
+.scrollTags{
+    overflow-y:auto;
+    height: 50vh;
+}
 /* ------------------ End of Darren Style -----------*/
+
+
 /* ------------------ Start of Wilbur Style----------*/
 /* nav bar */
 .navbar-default{
