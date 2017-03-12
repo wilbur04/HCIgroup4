@@ -121,23 +121,28 @@
                     
                     <!--Tags card-->
                     <div class="panel panel-default">
-                        <div id='tagsMenu' class="panel-heading">
-                            <span id='listTagsButton' class='glyphicon glyphicon-tags'> Your Tags </span>
+                        <div style="padding-top: 0px; padding-bottom: 0px;" id='listTagsButton' class="panel-heading clearfix">
+                            <!--
+                            <h4 class="pull-left"> All Tags </h4>
+                            <span style="font-size: 3vh" class="glyphicon glyphicon-chevron-left pull-right"></span>
+                            -->
+                            
+                            <div style="font-size: 20px;" class="has-feedback">
+                                <h4 class="form-control header-non-textbox">All Tags</h4>
+                                <span id="tagIcon" class="form-control-feedback glyphicon glyphicon-chevron-left"></span>
+                            </div>
                         </div>
-                        
-                        <div class="panel-body">
-                            <a class="btn btn-default btn-sm">
-                                <span data-toggle="modal" data-target="#filterTags" id="tagFilter" class="glyphicon glyphicon-plus"> Filter Tag</span>
-                            </a>
-                        </div>
-                        
-                        <div id='tagsMain'>
+                            
+                        <div id='tagsMain' class="hidden">
                             <div id='listTagsPane' class='scrollTags'></div>
                         </div>
                         
-                        <div class="panel-footer">
-                            <a href='#' class="btn btn-default btn-sm">
-                                <span data-toggle="modal" data-target="#createTag" id="newTagButton" class="glyphicon glyphicon-plus"> Create Tag</span>
+                        <div class="panel-footer clearfix">
+                            <a href='#' class="btn btn-default btn-sm pull-right">
+                                <span data-toggle="modal" data-target="#createTag" id="newTagButton"> Create Tag</span>
+                            </a>
+                            <a class="btn btn-default btn-sm pull-left">
+                                <span data-toggle="modal" data-target="#filterTags" id="tagFilter"> Filter Tag</span>
                             </a>
                         </div>
                     </div>

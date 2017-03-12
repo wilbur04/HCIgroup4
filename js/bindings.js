@@ -8,6 +8,7 @@ $(document).ready(function() {
   let tagListPane = $('<div/>', {'class': 'tag-list-pane list-group'});
   var firstFilter = 0;
   let listTagsPane = $('#listTagsPane');
+  var hiddenCheck = true;
   
   $('#logInButton').click(function () {
     DMS.logIn($('#userName').val(), {
@@ -15,12 +16,14 @@ $(document).ready(function() {
         loggedOut.detach();
         $(document.body).append(loggedIn.show( function() {
           $('#addDefaultObjectsButton').click();
+          
+          $('#tagsMain').addClass('hidden');
+          
+          hiddenCheck = true;
+          
         }));
         
         $('#loggedInAs').append('Logged in as ').append($('<span/>', {'class': 'user-name'}).text(DMS.getUserName()));
-        
-        tagListPane.appendTo(listTagsPane);
-        refreshTagList(tagListPane, filterList);
       },
       onerror: function () {
         alert("Unable to log in.");
@@ -255,15 +258,21 @@ $(document).ready(function() {
 
   $('#listTagsButton').click(function () {
     listTagsPane.empty().show().siblings().hide();
-
-    //filterList.empty();
-    
-    //filterList.appendTo(listTagsPane);
-    
     tagListPane.appendTo(listTagsPane);
-
-    //filterList.append(generateTagFilterItem(tagListPane, filterList));
     refreshTagList(tagListPane, filterList);
+    
+    $("#tagsMain").toggleClass('hidden');
+    
+    hiddenCheck = !hiddenCheck;
+    
+    if(hiddenCheck == true){
+      $('#tagIcon').addClass('glyphicon-chevron-left');
+      $('#tagIcon').removeClass('glyphicon-chevron-down');
+    }else{
+      $('#tagIcon').addClass('glyphicon-chevron-down');
+      $('#tagIcon').removeClass('glyphicon-chevron-left');
+    }
+    
   });
   
   $('#search').keyup(function () {
@@ -295,7 +304,7 @@ $(document).ready(function() {
     }
     
     refreshTagList(tagListPane, filterList);
-  })
+  });
   
   $('#removeFiltersButton').click(function () {
     let filterPane = $('#tagFilterBody');
@@ -303,5 +312,5 @@ $(document).ready(function() {
     filterPane.append(filterList);
     filterList.append(generateTagFilterItem(tagListPane, filterList));
     refreshTagList(tagListPane, filterList);
-  })
+  });
 });
