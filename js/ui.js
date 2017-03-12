@@ -32,6 +32,7 @@ function eventList (dmsObject) {
   return list;
 }
 
+
 function compileFiltersFromData (filterList) {
   let filters = [];
   for (let filterItem of filterList.find('li'))
@@ -134,6 +135,7 @@ function refreshDocumentList (targetPane, filterList) {
 }
 
 function documentInformationPane (doc) {
+
   let detailsPane = $('<div/>', { 'class': 'document-details-pane' });
   let controlPane = $('<div/>', { 'class': 'document-control-pane' });
   let commentsPane = $('<div/>', { 'class': 'document-comments-pane' });
@@ -144,11 +146,12 @@ function documentInformationPane (doc) {
       .append(controlPane);
 
   // The details pane **********************************************************
-  
+
   let details = $('<table/>', { 'class': 'document-details' });
   addProperty(details, 'File', doc.getFile());
 
-  let owners = $('<input/>', {
+
+    let owners = $('<input/>', {
     type: 'text',
       class:'form-control',
     readonly: true
