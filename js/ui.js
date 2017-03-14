@@ -42,21 +42,23 @@ function compileFiltersFromData (filterList) {
 
 function dmsObjectList (prefix, infoPaneGenerator, filters, dmsForEach) {
   let list = $('<ul/>', {'class' : 'list-group'});
-  let callback = new Callback()
-      .setCallback(function (dmsObject) {
-        let name = $('<span/>', {
-          'class': prefix+'-name',
-          text: dmsObject.getName(),
-          click: function () {
-            informationPane.toggle();
-          }
-        });
+  
+  let callback = new Callback().setCallback(function (dmsObject) {
+    
+        let name = $('<span/>', {'class': prefix+'-name', text: dmsObject.getName(), click: function () {
+          informationPane.toggle();
+        }});
+        
+        
+        
+        
         let informationPane = infoPaneGenerator(dmsObject);
         informationPane.hide();
         let item = $('<li/>', {'class':'list-group-item'}).append(name).append(informationPane);
         list.append(item);
-      })
-      .addFilters(filters);
+        
+      }).addFilters(filters);
+      
   dmsForEach(callback);
   return list;
 }

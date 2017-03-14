@@ -1,5 +1,5 @@
 $(document).ready(function() {
-  
+  $('#addDefaultObjectsButton').click();
   // User management ***********************************************************
 
   let loggedIn = $('#loggedIn');
@@ -15,7 +15,6 @@ $(document).ready(function() {
       onsuccess: function () {
         loggedOut.detach();
         $(document.body).append(loggedIn.show( function() {
-          $('#addDefaultObjectsButton').click();
           
           $('#tagsMain').addClass('hidden');
           
@@ -313,4 +312,6 @@ $(document).ready(function() {
     filterList.append(generateTagFilterItem(tagListPane, filterList));
     refreshTagList(tagListPane, filterList);
   });
+  
+  //toggle the tag-information-pane to show it, they already loaded
 });
