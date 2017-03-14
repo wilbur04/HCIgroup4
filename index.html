@@ -61,7 +61,7 @@
     <div id='loggedIn'>
         <nav class="navbar navbar-default">
             <div class="container-fluid">
-                <h1 class="logo navbar-header">LOGO</h1>
+                <h1 class="navbar-brand">LOGO</h1>
                 <div class="navbar-header">
                     <button class="navbar-toggle" data-toggle="collapse" data-target="#Navdrop">
                         <span class="icon-bar"></span>
@@ -74,7 +74,7 @@
                 <div class="collapse navbar-collapse" id="Navdrop">
                     <ul class="nav navbar-nav ">
                         <li ><a href=#>
-                            <span style="font-size: 3em" class="glyphicon glyphicon-plus navbar-btn"></span>
+                            <span style="font-size: 3em" class="glyphicon glyphicon-refresh navbar-btn" id='addDefaultObjectsButton'></span>
                         </a></li>
                         <li><a href=#>
                             <span style="font-size: 3em" class="glyphicon glyphicon-cloud-upload navbar-btn" data-toggle="modal" data-target="#uploadModal"></span>
@@ -84,7 +84,9 @@
                         <li>
                             <a type='button'  id='logOutButton'>
                                 <span style="font-size: 3em" class="glyphicon glyphicon-log-out text-center"></span>
-                                <br>Log out</a>
+                                <br><div id='userPane'>
+                                <span id='loggedInAs'></span>
+                            </div></a>
                         </li>
                     </ul>
                 </div>
@@ -93,7 +95,7 @@
         
         <div class="container-fluid">
             <!-- filter and search bar -->
-            <nav id="filterbar" class="navbar">
+            <nav id="filterbar" class="navbar ">
                 <div class="container ">
                     <div class="has-feedback form-group">
                         <input type="text" class="search form-control navbar-right" id="search", placeholder="Search">
@@ -104,20 +106,18 @@
             
             <!-- Settings type of things  -->
             <div>
-                <div id='userPane'>
-                    <span id='loggedInAs'></span>
-                </div>
+
         
                 <div id='adminPane'>
-                    <button type='button' id='resetButton'>Reset</button>
-                    <button type='button' id='addDefaultObjectsButton'>Add default documents and tags</button>
+                   <!--- <button type='button' >Reset</button>
+                    <button type='button' id='addDefaultObjectsButton'>Add default documents and tags</button> -->
                 </div>
             </div>
             
             <!-- Documents and tags -->
             <div>
                 <!-- Tags -->
-                <div id='tagsPane'>
+                <div id='tagsPane' class="panel panel-default">
                     
                     <!--Tags card-->
                     <div class="panel panel-default">
@@ -137,13 +137,14 @@
                     </div>
                 </div>
                 
-                <div id='documentsPane'>
+                <div id='documentsPane' class="panel panel-default">
+                    <div class="panel-heading">
+                      <p>Documents</p>
+                        </div>
                     <div id='documentsMenu'>
-                        <button type='button' >Upload document</button>
                         <button type='button' id='listDocumentsButton'>List all documents</button>
                     </div>
                     <div id='documentsMain'>
-                       <!-- <div id='uploadDocumentPane'></div> -->
                         <div id='listDocumentsPane'></div>
                     </div>
                 </div>
@@ -182,6 +183,7 @@
             <div class="modal-content">
                 <!-- The header to the pop up thing -->
                 <div class ="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
                     <h4 class="modal-title">Create new Tag</h4>
                 </div>
                 
@@ -190,7 +192,7 @@
                 </div>
                 
                 <div class='modal-footer'>
-                    <p>footer</p>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                 </div>
             </div>
         </div>

@@ -13,7 +13,7 @@ $(document).ready(function() {
           $('#addDefaultObjectsButton').click();
         }));
         
-        $('#loggedInAs').append('Logged in as ').append($('<span/>', {'class': 'user-name'}).text(DMS.getUserName()));
+        $('#loggedInAs').append('').append($('<span/>', {'class': 'user-name'}).text(DMS.getUserName()));
         
       },
       onerror: function () {
@@ -40,7 +40,10 @@ $(document).ready(function() {
 
   $('#addDefaultObjectsButton').click(function () {
     // From National Geographic: Photo of the Day - Best of January
-    
+      DMS.clearStores();
+      $('#documentsMain').children().empty();
+      $('#tagsMain').children().empty();
+
     DMS.uploadDocument(
       'Carved-in-Stone.jpeg', 'Carved-in-Stone.jpeg', ['NatGeo'],
       'Glacial river water conjures an evanescent mist at the Norwegian rock '+
@@ -263,19 +266,19 @@ $(document).ready(function() {
   });
   
   $('#search').keyup(function () {
-        if ($(this).val() != '') {
-            let listTagsPane = $('#listTagsPane');
-            listTagsPane.empty().show().siblings().hide();
+      if ($(this).val() != '') {
+          let listTagsPane = $('#listTagsPane');
+          listTagsPane.empty().show().siblings().hide();
 
-            let filterList = $('<ol/>', {
-                'class': 'tag-filter-list'
-            }).appendTo(listTagsPane);
-            let tagListPane = $('<div/>', {
-                'class': 'tag-list-pane'
-            }).appendTo(listTagsPane);
+          let filterList = $('<ol/>', {
+              'class': 'tag-filter-list'
+          }).appendTo(listTagsPane);
+          let tagListPane = $('<div/>', {
+              'class': 'tag-list-pane'
+          }).appendTo(listTagsPane);
 
-            filterList.append(generateTagFilterItem(tagListPane, filterList));
-            refreshTagList(tagListPane, filterList);
-        }
-    });
+          filterList.append(searchTag(tagListPane, filterList));
+          refreshTagList(tagListPane, filterList);
+      }
+  });
 });
