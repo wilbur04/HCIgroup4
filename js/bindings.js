@@ -278,21 +278,19 @@ $(document).ready(function() {
     }
     
   });
-  
+
+let list = $('#listTagsPane');
+
   $('#search').keyup(function () {
+
       if ($(this).val() != '') {
           let listTagsPane = $('#listTagsPane');
-          listTagsPane.empty().show().siblings().hide();
+          //listTagsPane.empty().show().siblings().hide();
 
-          let filterList = $('<ol/>', {
-              'class': 'tag-filter-list'
-          }).appendTo(listTagsPane);
-          let tagListPane = $('<div/>', {
-              'class': 'tag-list-pane'
-          }).appendTo(listTagsPane);
-
-          filterList.append(generateTagFilterItem(tagListPane, filterList));
+          filterList.append(searchTag(tagListPane, filterList));
           refreshTagList(tagListPane, filterList);
+      }else{
+          refreshTagList(tagListPane, list);
       }
   });
   

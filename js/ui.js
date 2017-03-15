@@ -439,12 +439,10 @@ function addTagFilterAsData (option, value, element) {
   }
 }
 let searchTag = function (pane,filterList){
-  let filterItem = $('<li/>');
-    ('#search').onkeyup (function (){
-        addTagFilterAsData('name', $('#search').val(), filterItem);
-        filterItem.after(search(pane,filterItem));
-        refreshTagList(pane, filterList);
-    });
+    let filterItem = $('<li/>');
+    addTagFilterAsData('name', $('#search').val(), filterItem);
+    filterItem.after(generateTagFilterItem(pane, filterList));
+    refreshTagList(pane, filterList);
     return filterItem;
 }
 let generateTagFilterItem = function (pane, filterList) {
