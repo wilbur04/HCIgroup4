@@ -68,16 +68,14 @@ function tagObjectList (prefix, infoPaneGenerator, filters, dmsForEach) {
   
   let callback = new Callback().setCallback(function (dmsObject) {
     
-        let name = $('<span/>', {'class': prefix+'-name', text: dmsObject.getName(), click: function () {
-          informationPane.toggle();
-        }});
-        
-        
+    let clickable = $('<div><span class="tag-name">' + dmsObject.getName() + "</span><span class='form-control-feedback glyphicon glyphicon-chevron-left'></span></div>").click(function(){
+      informationPane.toggle();
+    });
         
         
         let informationPane = infoPaneGenerator(dmsObject);
         informationPane.hide();
-        let item = $('<li/>', {'class':'list-group-item'}).append(name).append(informationPane);
+        let item = $('<li/>', {'class':'list-group-item'}).append(clickable).append(informationPane);
         list.append(item);
         
       }).addFilters(filters);
