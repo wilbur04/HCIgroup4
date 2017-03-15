@@ -469,7 +469,7 @@ $(document).ready(function() {
   }
   
   // Document management *******************************************************
-  
+
   DMS.uploadDocument = function (name, file, owners, description, tags,
                                  priv = true, request = {}) {
     let oldTags = []
@@ -526,7 +526,10 @@ $(document).ready(function() {
   };
 
   // Tag management ************************************************************
-  
+  DMS.search = function (name){
+    let list = [];
+    DMS.forEachTag(callback)
+  }
   DMS.createTag = function (name, owners, description, request = {}) {
     let tag = new Tag(name)
         .setOwnersFromList([DMS.userName, ...owners.slice(0)])

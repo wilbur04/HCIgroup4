@@ -316,7 +316,6 @@ function documentInformationPane (doc) {
     });
     commentsPane.append(newComment).append(addComment);
   };
-  
   let showCommentsButton = $('<button/>', {
     type: 'button',
     text: 'Show comments',
@@ -395,10 +394,20 @@ function addTagFilterAsData (option, value, element) {
     });
     break;
   default:
-    console.error('Unknown filter option:', criterion.val());
+      element.data('filter', function (doc) {
+          return doc.getName().includes(value);
+      });
   }
 }
-
+let searchTag = function (pane,filterList){
+  let filterItem = $('<li/>');
+    ('#search').onkeyup (function (){
+        addTagFilterAsData('name', $('#search').val(), filterItem);
+        filterItem.after(search(pane,filterItem));
+        refreshTagList(pane, filterList);
+    });
+    return filterItem;
+}
 let generateTagFilterItem = function (pane, filterList) {
   let filterItem = $('<li/>');
   let criterion = $('<select/>',{'class':'form-control'})
@@ -424,7 +433,7 @@ let generateTagFilterItem = function (pane, filterList) {
       addTagFilterAsData(criterion.val(), pattern.val(), filterItem);
       refreshTagList(pane, filterList);
     }
-  }); 
+  });
   filterItem.append(criterion).append(pattern).append(addFilterButton);
   criterion.before('Filter results by ');
   criterion.after(': ');

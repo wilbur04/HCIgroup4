@@ -9,21 +9,22 @@ $(document).ready(function() {
   var firstFilter = 0;
   let listTagsPane = $('#listTagsPane');
   var hiddenCheck = true;
-  
+
   $('#logInButton').click(function () {
     DMS.logIn($('#userName').val(), {
       onsuccess: function () {
         loggedOut.detach();
         $(document.body).append(loggedIn.show( function() {
           $('#addDefaultObjectsButton').click();
-          
+
           $('#tagsMain').addClass('hidden');
-          
+
           hiddenCheck = true;
-          
+
         }));
         
-        $('#loggedInAs').append('Logged in as ').append($('<span/>', {'class': 'user-name'}).text(DMS.getUserName()));
+        $('#loggedInAs').append('').append($('<span/>', {'class': 'user-name'}).text(DMS.getUserName()));
+        
       },
       onerror: function () {
         alert("Unable to log in.");
@@ -49,7 +50,10 @@ $(document).ready(function() {
 
   $('#addDefaultObjectsButton').click(function () {
     // From National Geographic: Photo of the Day - Best of January
-    
+      DMS.clearStores();
+      $('#documentsMain').children().empty();
+      $('#tagsMain').children().empty();
+
     DMS.uploadDocument(
       'Carved-in-Stone.jpeg', 'Carved-in-Stone.jpeg', ['NatGeo'],
       'Glacial river water conjures an evanescent mist at the Norwegian rock '+
@@ -257,14 +261,15 @@ $(document).ready(function() {
   });
 
   $('#listTagsButton').click(function () {
+    let listTagsPane = $('#listTagsPane');
     listTagsPane.empty().show().siblings().hide();
     tagListPane.appendTo(listTagsPane);
     refreshTagList(tagListPane, filterList);
-    
+
     $("#tagsMain").toggleClass('hidden');
-    
+
     hiddenCheck = !hiddenCheck;
-    
+
     if(hiddenCheck == true){
       $('#tagIcon').addClass('glyphicon-chevron-left');
       $('#tagIcon').removeClass('glyphicon-chevron-down');
@@ -272,7 +277,7 @@ $(document).ready(function() {
       $('#tagIcon').addClass('glyphicon-chevron-down');
       $('#tagIcon').removeClass('glyphicon-chevron-left');
     }
-    
+
   });
   
   $('#search').keyup(function () {
@@ -291,21 +296,21 @@ $(document).ready(function() {
           refreshTagList(tagListPane, filterList);
       }
   });
-  
+
   //Puts the filter tags section in the modal
   $('#tagFilter').click(function () {
     let filterPane = $('#tagFilterBody');
-    
+
     //only create a filter search on first instance
     if(firstFilter == 0){
       filterPane.append(filterList);
       filterList.append(generateTagFilterItem(tagListPane, filterList));
       firstFilter = 1;
     }
-    
+
     refreshTagList(tagListPane, filterList);
   });
-  
+
   $('#removeFiltersButton').click(function () {
     let filterPane = $('#tagFilterBody');
     filterList.empty();
