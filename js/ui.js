@@ -159,15 +159,29 @@ function refreshDocumentList (targetPane, filterList) {
 }
 
 function documentInformationPane (doc) {
-
   let detailsPane = $('<div/>', { 'class': 'document-details-pane' });
   let controlPane = $('<div/>', { 'class': 'document-control-pane' });
   let commentsPane = $('<div/>', { 'class': 'document-comments-pane' });
   let historyPane = $('<div/>', { 'class': 'document-history-pane' });
 
-  let mainPane = $('<div/>', { 'class': 'document-information-pane' })
-      .append(detailsPane)
-      .append(controlPane);
+
+  //modal *************************** by wilbur.
+        let mheader = $('<div/>',{'class':'modal-header'})
+        .append("<button type=\"button\" class=\"close\" data-dismiss=\"modal\"data-target=\"#myModal\">&times;</button>");
+    let mbody = $('<div/>',{'class':'modal-body'})
+        .append(detailsPane)
+        .append(controlPane);
+    let mfooter = $('<div/>',{'class':'modal-footer'})
+        .append("<button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\" id=\"mClose\">Close</button>");
+    let mcontent = $('<div/>',{'class':'modal-content'})
+        .append(mheader)
+        .append(mbody)
+        .append(mfooter);
+    let mdialog = $('<div/>',{'class':'modal-dialog'}).append(mcontent);
+    let mainPane = $('<div/>', { 'class': 'document-information-pane modal'})
+        .attr('role','dialog')
+        .attr('id','myModal')
+        .append(mdialog);
 
   // The details pane **********************************************************
 
