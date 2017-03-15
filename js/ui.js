@@ -54,6 +54,29 @@ function dmsObjectList (prefix, infoPaneGenerator, filters, dmsForEach) {
         
         let informationPane = infoPaneGenerator(dmsObject);
         informationPane.hide();
+        let item = $('<li/>').append(name).append(informationPane);
+        list.append(item);
+        
+      }).addFilters(filters);
+      
+  dmsForEach(callback);
+  return list;
+}
+
+function tagObjectList (prefix, infoPaneGenerator, filters, dmsForEach) {
+  let list = $('<ul/>', {'class' : 'list-group'});
+  
+  let callback = new Callback().setCallback(function (dmsObject) {
+    
+        let name = $('<span/>', {'class': prefix+'-name', text: dmsObject.getName(), click: function () {
+          informationPane.toggle();
+        }});
+        
+        
+        
+        
+        let informationPane = infoPaneGenerator(dmsObject);
+        informationPane.hide();
         let item = $('<li/>', {'class':'list-group-item'}).append(name).append(informationPane);
         list.append(item);
         
@@ -444,7 +467,7 @@ let generateTagFilterItem = function (pane, filterList) {
 
 function refreshTagList (targetPane, filterList) {
   targetPane.empty()
-    .append(dmsObjectList('tag',
+    .append(tagObjectList('tag',
                           tagInformationPane,
                           compileFiltersFromData(filterList),
                           DMS.forEachTag));
