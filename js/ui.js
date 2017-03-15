@@ -47,6 +47,7 @@ function dmsObjectList (prefix, infoPaneGenerator, filters, dmsForEach) {
     
         let name = $('<span/>', {'class': prefix+'-name', text: dmsObject.getName(), click: function () {
           informationPane.toggle();
+          
         }});
         
         
@@ -68,8 +69,9 @@ function tagObjectList (prefix, infoPaneGenerator, filters, dmsForEach) {
   
   let callback = new Callback().setCallback(function (dmsObject) {
     
-    let clickable = $('<div><span class="tag-name">' + dmsObject.getName() + "</span><span class='form-control-feedback glyphicon glyphicon-chevron-left'></span></div>").click(function(){
+    let clickable = $('<div><span class="tag-name">' + dmsObject.getName() + "</span><span class='form-control-feedback glyphicon glyphicon glyphicon-eye-open'></span></div>").click(function(){
       informationPane.toggle();
+      
     });
         
         
@@ -507,19 +509,26 @@ function tagInformationPane (tag) {
   if (DMS.canEdit(tag)) {
     let editPane = $('<span/>').appendTo(controlPane);
 
-    let editButton = $('<button/>', {
-      type: 'button',
-      text: 'Edit details',
-      click: function () {
+    let editButton = $('<a class="btn btn-warning btn-sm ">Edit Details</a>').click(function(){
                           owners.prop('readonly', false);
                           description.prop('readonly', false);
                           
                           editButton.detach();
                           editPane.append(cancelButton).append(saveButton);
-                         }
     });
+    
     editPane.append(editButton);
     
+    let cancelButton = $('<a class="btn btn-warning btn-sm ">Cancel</a>').click(function(){
+        owners.val(tag.ownersToString()).prop('readonly', true);
+        description.val(tag.getDescription()).prop('readonly', true);
+        
+        cancelButton.detach();
+        saveButton.detach();
+        editPane.append(editButton);
+    });
+    
+    /*
     let cancelButton = $('<button/>', {
       type: 'button',
       text: 'Cancel',
@@ -532,7 +541,28 @@ function tagInformationPane (tag) {
         editPane.append(editButton);
       }
     });
+    */
 
+    let saveButton = $('<a class="btn btn-success btn-sm ">Save</a>').click(function(){
+        let ownerList = parseCSV(owners.val());
+        if (ownerList.length == 0) {
+          alert('The document-owners group cannot become empty.');
+          return;
+        }
+
+        tag.updateOwnersFromList(ownerList)
+          .updateDescription(description.val());
+        DMS.updateTag(tag);
+
+        owners.prop('readonly', true);
+        description.prop('readonly', true);
+
+        cancelButton.detach();
+        saveButton.detach();
+        editPane.append(editButton);
+    });
+    
+    /*
     let saveButton = $('<button/>', {
       type: 'button',
       text: 'Save',
@@ -555,7 +585,21 @@ function tagInformationPane (tag) {
         editPane.append(editButton);
       }
     });
-
+    */
+    
+    let deleteButton = $('<a class="btn btn-danger btn-sm ">Delete Tag</a>').click(function(){
+        DMS.deleteTag(tag, {
+          onerror: function () {
+            alert('There are documents still associated with this tag.');
+          },
+          oncomplete: function () {
+            $('#listTagsButton').click();
+          }
+        });
+    });
+    
+    
+    /*
     let deleteButton = $('<button/>', {
       type: 'button',
       text: 'Delete tag',
@@ -570,8 +614,22 @@ function tagInformationPane (tag) {
         });
       }
     });
+    */
+    
     controlPane.append(deleteButton);
 
+    let mapButton = $('<a class="btn btn-primary btn-sm ">Map Tag</a>').click(function(){
+        let newTagName = prompt('To which tag would you like to map \'' +
+                                tag.getName() + '\'?');
+        if (newTagName != null)
+          DMS.mapTag(tag, newTagName, {
+            oncomplete: function () {
+              $('#listTagsButton').click();
+            }
+          });
+    });
+
+    /*
     let mapButton = $('<button/>', {
       type: 'button',
       text: 'Map tag',
@@ -586,11 +644,25 @@ function tagInformationPane (tag) {
           });
       }
     });
+    */
+    
     controlPane.append(mapButton);
   } // DMS.canEdit(tag)
   
   // The history pane **********************************************************
 
+  let showHistoryButton = $('<a class="btn btn-info btn-sm ">Show History</a>').click(function(){
+    if (historyPane.is(':visible')) {
+        showHistoryButton.text('Show history');
+        historyPane.detach();
+      } else {
+        showHistoryButton.text('Hide history');
+        historyPane.empty().append(eventList(tag));
+        historyPane.appendTo(mainPane);
+      }
+  });
+
+/*
   let showHistoryButton = $('<button/>', {
     type: 'button',
     text: 'Show history',
@@ -605,6 +677,8 @@ function tagInformationPane (tag) {
       }
     }
   });
+  
+  */
   controlPane.append(showHistoryButton);
 
   return mainPane;
