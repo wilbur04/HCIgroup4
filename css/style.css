@@ -59,6 +59,12 @@ span:hover{
 
 }
 
+@media (max-width: 663px){
+    #tagsPane{
+        width: 200px;
+    }
+}
+
 /* User management */
 
 .user-name {}
