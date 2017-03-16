@@ -133,6 +133,9 @@ class DMSObject {
   getName() {
     return this.name;
   }
+  getlName(){
+    return this.name.toLowerCase();
+  }
 
   getOwners() {
     return this.owners;

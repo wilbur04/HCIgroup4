@@ -94,7 +94,7 @@ function addDocumentFilterAsData (option, value, element) {
   switch (option) {
   case 'name':
     element.data('filter', function (doc) {
-      return doc.getName().includes(value);
+      return doc.getlName().includes(value);
     });
     break
   case 'owner':
@@ -118,7 +118,7 @@ function addDocumentFilterAsData (option, value, element) {
 }
 function searchDoc( pane , filterlist){
   let fileterItem = $('<li/>');
-  addDocumentFilterAsData('name', $('#search').val(),fileterItem);
+  addDocumentFilterAsData('name', $('#search').val().toLowerCase(),fileterItem);
   fileterItem.after(generateDocumentFilterItem(pane,fileterItem));
   refreshDocumentList(pane, filterlist);
   return fileterItem;
@@ -426,7 +426,7 @@ function addTagFilterAsData (option, value, element) {
   switch (option) {
   case 'name':
     element.data('filter', function (doc) {
-      return doc.getName().includes(value);
+      return doc.getlName().includes(value);
     });
     break
   case 'owner':
@@ -447,7 +447,7 @@ function addTagFilterAsData (option, value, element) {
 }
 let searchTag = function (pane,filterList){
     let filterItem = $('<li/>');
-    addTagFilterAsData('name', $('#search').val(), filterItem);
+    addTagFilterAsData('name', $('#search').val().toLowerCase(), filterItem);
     filterItem.after(generateTagFilterItem(pane, filterList));
     refreshTagList(pane, filterList);
     return filterItem;

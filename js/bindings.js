@@ -205,6 +205,8 @@ $(document).ready(function() {
     filterList.append(generateDocumentFilterItem(documentListPane, filterList));
     refreshDocumentList(documentListPane, filterList);
   });
+
+  //************* search bar to search documents ***********//
     let dlist = $('#documentListPane');
   $('#search').keyup(function () {
       let listDocumentsPane = $('#listDocumentsPane');
