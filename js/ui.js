@@ -116,6 +116,13 @@ function addDocumentFilterAsData (option, value, element) {
     console.error('Unknown filter option:', criterion.val());
   }
 }
+function searchDoc( pane , filterlist){
+  let fileterItem = $('<li/>');
+  addDocumentFilterAsData('name', $('#search').val(),fileterItem);
+  fileterItem.after(generateDocumentFilterItem(pane,fileterItem));
+  refreshDocumentList(pane, filterlist);
+  return fileterItem;
+}
 
 function generateDocumentFilterItem (pane, filterList) {
   let filterItem = $('<li/>');

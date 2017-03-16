@@ -71,11 +71,12 @@ span{
 
 /* Document management */
 
-.document-filter-list {}
+.document-filter-list {
+    list-style-type: none;
+}
 
 .document-list-pane {
-
-
+    list-style-type: none;
 }
 
 .document-list-pane li {

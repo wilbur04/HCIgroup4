@@ -211,7 +211,6 @@ $(document).ready(function() {
         if ($(this).val() != '') {
             let listDocumentsPane = $('#listDocumentsPane');
             listDocumentsPane.empty().show().siblings().hide();
-
             let filterList = $('<ol/>', {
                 'class': 'document-filter-list'
             }).appendTo(listDocumentsPane);
@@ -219,8 +218,11 @@ $(document).ready(function() {
                 'class': 'document-list-pane'
             }).appendTo(listDocumentsPane);
 
-            filterList.append(generateDocumentFilterItem(documentListPane, filterList));
+
+            filterList.append(searchDoc(documentListPane, filterList));
             refreshDocumentList(documentListPane, filterList);
+        }else{
+            filterList.empty();
         }
     });
 
@@ -286,11 +288,11 @@ let list = $('#listTagsPane');
       if ($(this).val() != '') {
           let listTagsPane = $('#listTagsPane');
           //listTagsPane.empty().show().siblings().hide();
-
           filterList.append(searchTag(tagListPane, filterList));
           refreshTagList(tagListPane, filterList);
       }else{
           refreshTagList(tagListPane, list);
+          filterList.empty();
       }
   });
   
