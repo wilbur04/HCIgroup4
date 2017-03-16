@@ -213,7 +213,6 @@ $(document).ready(function() {
       listDocumentsPane.empty().show().siblings().hide();
     if ($(this).val() != '') {
 
-
         let filterList = $('<ol/>', {
             'class': 'document-filter-list'
         }).appendTo(listDocumentsPane);
@@ -324,5 +323,10 @@ let list = $('#listTagsPane');
     refreshTagList(tagListPane, filterList);
   });
 
+
+
+    $('#mClose').onclick(function(){
+        $('.document-details.pane').css("background-color", "red");
+    });
   //toggle the tag-information-pane to show it, they already loaded
 });

@@ -49,11 +49,11 @@ function dmsObjectList (prefix, infoPaneGenerator, filters, dmsForEach) {
           informationPane.toggle();
         }});
         
-        
-        
+
         
         let informationPane = infoPaneGenerator(dmsObject);
         informationPane.hide();
+
         let item = $('<li/>').append(name).append(informationPane);
         list.append(item);
         
@@ -174,12 +174,10 @@ function documentInformationPane (doc) {
 
   //modal *************************** by wilbur.
         let mheader = $('<div/>',{'class':'modal-header'})
-        .append("<button type=\"button\" class=\"close\" data-dismiss=\"modal\"data-target=\"#myModal\">&times;</button>");
     let mbody = $('<div/>',{'class':'modal-body'})
         .append(detailsPane)
         .append(controlPane);
-    let mfooter = $('<div/>',{'class':'modal-footer'})
-        .append("<button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\" id=\"mClose\">Close</button>");
+    let mfooter = $('<div/>',{'class':'modal-footer'});
     let mcontent = $('<div/>',{'class':'modal-content'})
         .append(mheader)
         .append(mbody)
@@ -189,6 +187,15 @@ function documentInformationPane (doc) {
         .attr('role','dialog')
         .attr('id','myModal')
         .append(mdialog);
+
+    let closeButton = $('<button/>', {
+        type: 'button',
+        text: 'close',
+        click: function () {
+          mainPane.hide();
+        }
+    });
+    mfooter.append(closeButton);
 
   // The details pane **********************************************************
 
