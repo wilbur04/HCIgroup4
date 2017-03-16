@@ -205,25 +205,29 @@ $(document).ready(function() {
     filterList.append(generateDocumentFilterItem(documentListPane, filterList));
     refreshDocumentList(documentListPane, filterList);
   });
-
-
+    let dlist = $('#documentListPane');
   $('#search').keyup(function () {
-        if ($(this).val() != '') {
-            let listDocumentsPane = $('#listDocumentsPane');
-            listDocumentsPane.empty().show().siblings().hide();
-            let filterList = $('<ol/>', {
-                'class': 'document-filter-list'
-            }).appendTo(listDocumentsPane);
-            let documentListPane = $('<div/>', {
-                'class': 'document-list-pane'
-            }).appendTo(listDocumentsPane);
+      let listDocumentsPane = $('#listDocumentsPane');
+      listDocumentsPane.empty().show().siblings().hide();
+    if ($(this).val() != '') {
 
 
-            filterList.append(searchDoc(documentListPane, filterList));
-            refreshDocumentList(documentListPane, filterList);
-        }else{
-            filterList.empty();
-        }
+        let filterList = $('<ol/>', {
+            'class': 'document-filter-list'
+        }).appendTo(listDocumentsPane);
+        let documentListPane = $('<div/>', {
+            'class': 'document-list-pane'
+        }).appendTo(listDocumentsPane);
+
+        filterList.append(searchDoc(documentListPane, filterList));
+        refreshDocumentList(documentListPane, filterList);
+    }else{
+        let documentListPane = $('<div/>', {
+            'class': 'document-list-pane'
+        }).appendTo(listDocumentsPane);
+        refreshDocumentList(documentListPane, dlist);
+        filterList.empty();
+    }
     });
 
 
