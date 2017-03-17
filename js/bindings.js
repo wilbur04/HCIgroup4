@@ -1,4 +1,5 @@
 $(document).ready(function() {
+
   $('#addDefaultObjectsButton').click();
   // User management ***********************************************************
 
@@ -205,22 +206,29 @@ $(document).ready(function() {
     refreshDocumentList(documentListPane, filterList);
   });
 
-
+  //************* search bar to search documents ***********//
+    let dlist = $('#documentListPane');
   $('#search').keyup(function () {
-        if ($(this).val() != '') {
-            let listDocumentsPane = $('#listDocumentsPane');
-            listDocumentsPane.empty().show().siblings().hide();
+      let listDocumentsPane = $('#listDocumentsPane');
+      listDocumentsPane.empty().show().siblings().hide();
+    if ($(this).val() != '') {
 
-            let filterList = $('<ol/>', {
-                'class': 'document-filter-list'
-            }).appendTo(listDocumentsPane);
-            let documentListPane = $('<div/>', {
-                'class': 'document-list-pane'
-            }).appendTo(listDocumentsPane);
+        let filterList = $('<ol/>', {
+            'class': 'document-filter-list'
+        }).appendTo(listDocumentsPane);
+        let documentListPane = $('<div/>', {
+            'class': 'document-list-pane'
+        }).appendTo(listDocumentsPane);
 
-            filterList.append(generateDocumentFilterItem(documentListPane, filterList));
-            refreshDocumentList(documentListPane, filterList);
-        }
+        filterList.append(searchDoc(documentListPane, filterList));
+        refreshDocumentList(documentListPane, filterList);
+    }else{
+        let documentListPane = $('<div/>', {
+            'class': 'document-list-pane'
+        }).appendTo(listDocumentsPane);
+        refreshDocumentList(documentListPane, dlist);
+        filterList.empty();
+    }
     });
 
 
@@ -277,21 +285,19 @@ $(document).ready(function() {
     }
     
   });
-  
+
+let list = $('#listTagsPane');
+
   $('#search').keyup(function () {
+
       if ($(this).val() != '') {
           let listTagsPane = $('#listTagsPane');
-          listTagsPane.empty().show().siblings().hide();
-
-          let filterList = $('<ol/>', {
-              'class': 'tag-filter-list'
-          }).appendTo(listTagsPane);
-          let tagListPane = $('<div/>', {
-              'class': 'tag-list-pane'
-          }).appendTo(listTagsPane);
-
-          filterList.append(generateTagFilterItem(tagListPane, filterList));
+          //listTagsPane.empty().show().siblings().hide();
+          filterList.append(searchTag(tagListPane, filterList));
           refreshTagList(tagListPane, filterList);
+      }else{
+          refreshTagList(tagListPane, list);
+          filterList.empty();
       }
   });
   
@@ -317,5 +323,10 @@ $(document).ready(function() {
     refreshTagList(tagListPane, filterList);
   });
 
+
+
+    $('#mClose').onclick(function(){
+        $('.document-details.pane').css("background-color", "red");
+    });
   //toggle the tag-information-pane to show it, they already loaded
 });

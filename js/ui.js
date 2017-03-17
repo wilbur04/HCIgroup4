@@ -50,11 +50,11 @@ function dmsObjectList (prefix, infoPaneGenerator, filters, dmsForEach) {
           
         }});
         
-        
-        
+
         
         let informationPane = infoPaneGenerator(dmsObject);
         informationPane.hide();
+
         let item = $('<li/>').append(name).append(informationPane);
         list.append(item);
         
@@ -94,7 +94,7 @@ function addDocumentFilterAsData (option, value, element) {
   switch (option) {
   case 'name':
     element.data('filter', function (doc) {
-      return doc.getName().includes(value);
+      return doc.getlName().includes(value);
     });
     break
   case 'owner':
@@ -115,6 +115,13 @@ function addDocumentFilterAsData (option, value, element) {
   default:
     console.error('Unknown filter option:', criterion.val());
   }
+}
+function searchDoc( pane , filterlist){
+  let fileterItem = $('<li/>');
+  addDocumentFilterAsData('name', $('#search').val().toLowerCase(),fileterItem);
+  fileterItem.after(generateDocumentFilterItem(pane,fileterItem));
+  refreshDocumentList(pane, filterlist);
+  return fileterItem;
 }
 
 function generateDocumentFilterItem (pane, filterList) {
@@ -159,15 +166,36 @@ function refreshDocumentList (targetPane, filterList) {
 }
 
 function documentInformationPane (doc) {
-
   let detailsPane = $('<div/>', { 'class': 'document-details-pane' });
   let controlPane = $('<div/>', { 'class': 'document-control-pane' });
   let commentsPane = $('<div/>', { 'class': 'document-comments-pane' });
   let historyPane = $('<div/>', { 'class': 'document-history-pane' });
 
-  let mainPane = $('<div/>', { 'class': 'document-information-pane' })
-      .append(detailsPane)
-      .append(controlPane);
+
+  //modal *************************** by wilbur.
+        let mheader = $('<div/>',{'class':'modal-header'})
+    let mbody = $('<div/>',{'class':'modal-body'})
+        .append(detailsPane)
+        .append(controlPane);
+    let mfooter = $('<div/>',{'class':'modal-footer'});
+    let mcontent = $('<div/>',{'class':'modal-content'})
+        .append(mheader)
+        .append(mbody)
+        .append(mfooter);
+    let mdialog = $('<div/>',{'class':'modal-dialog'}).append(mcontent);
+    let mainPane = $('<div/>', { 'class': 'document-information-pane modal'})
+        .attr('role','dialog')
+        .attr('id','myModal')
+        .append(mdialog);
+
+    let closeButton = $('<button/>', {
+        type: 'button',
+        text: 'close',
+        click: function () {
+          mainPane.hide();
+        }
+    });
+    mfooter.append(closeButton);
 
   // The details pane **********************************************************
 
@@ -405,7 +433,7 @@ function addTagFilterAsData (option, value, element) {
   switch (option) {
   case 'name':
     element.data('filter', function (doc) {
-      return doc.getName().includes(value);
+      return doc.getlName().includes(value);
     });
     break
   case 'owner':
@@ -425,12 +453,10 @@ function addTagFilterAsData (option, value, element) {
   }
 }
 let searchTag = function (pane,filterList){
-  let filterItem = $('<li/>');
-    ('#search').onkeyup (function (){
-        addTagFilterAsData('name', $('#search').val(), filterItem);
-        filterItem.after(search(pane,filterItem));
-        refreshTagList(pane, filterList);
-    });
+    let filterItem = $('<li/>');
+    addTagFilterAsData('name', $('#search').val().toLowerCase(), filterItem);
+    filterItem.after(generateTagFilterItem(pane, filterList));
+    refreshTagList(pane, filterList);
     return filterItem;
 }
 let generateTagFilterItem = function (pane, filterList) {
