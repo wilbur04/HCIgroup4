@@ -134,6 +134,7 @@ function generateDocumentFilterItem (pane, filterList) {
   let pattern = $('<input/>', { type: 'text',class:'form-control' });
   let addFilterButton = $('<button/>', {
     type: 'button',
+      class: 'btn btn-primary btn-sm',
     text: 'Add filter',
     click: function () {
       addDocumentFilterAsData(criterion.val(), pattern.val(), filterItem);
@@ -145,6 +146,7 @@ function generateDocumentFilterItem (pane, filterList) {
   });
   let updateFilterButton = $('<button/>', {
     type: 'button',
+      class: 'btn btn-primary btn-sm',
     text: 'Update filter',
     click: function () {
       addDocumentFilterAsData(criterion.val(), pattern.val(), filterItem);
@@ -190,6 +192,7 @@ function documentInformationPane (doc) {
 
     let closeButton = $('<button/>', {
         type: 'button',
+        class: 'btn btn-primary btn-sm',
         text: 'close',
         click: function () {
           mainPane.hide();

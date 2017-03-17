@@ -68,15 +68,9 @@ span{
 
 
 
-@media (max-width: 663px){
-    #tagsPane{
-        width: 200px;
-    }
-}
-@media (max-width: 400px){
+@media (max-width: 700px){
     #documentsPane {
         width: 100%;
-        float: inherit;
         height: auto;
 
     }
@@ -160,16 +154,33 @@ span{
 
 }
 
-.document-details-pane {}
+.document-details-pane {
+    margin:auto;
+}
 
 .document-details {}
 
 .document-control-pane {}
 
-.document-comments-pane {}
+.document-comments-pane {
+    background-color: white;
+    width: 35%;
+    margin: auto;
+    padding: 10px;
+    border: thin #3c3c3c;
+}
 
-.document-history-pane {}
-
+.document-history-pane {
+    background-color: white;
+    width: 35%;
+    margin: auto;
+    padding: 10px;
+}
+@media (max-width:400px) {
+    .document-history-pane .document-comments-pane {
+        width:100%
+    }
+}
 /* Tag management */
 
 .tag-filter-list {}

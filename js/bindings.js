@@ -1,4 +1,20 @@
 $(document).ready(function() {
+    $('#userName').keyup(function() {
+        if($(this).val() == '') {
+            $(this).css("border-bottom", "2px solid red");
+        }else{
+            $(this).css("border-bottom", "2px solid green");
+        }
+    });
+    $('#passwordInput').keyup(function() {
+        if($(this).val() == '') {
+            $(this).css("border-bottom", "2px solid red");
+        }
+        else{
+            $(this).css("border-bottom", "2px solid green");
+        }
+
+    });
 
   $('#addDefaultObjectsButton').click();
   // User management ***********************************************************
@@ -143,6 +159,7 @@ $(document).ready(function() {
     let generateTags = $('<button/>', {
       type: 'button',
       text: 'Generate tags',
+        id:'tags-UploadDoc',
       click: function () {
         tags.val(extractTagNames(description.val()).join(', '));
       }
