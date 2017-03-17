@@ -115,7 +115,7 @@
             </div>
             
             <!-- Documents and tags -->
-            <div>
+            <div >
                 <!-- Tags -->
                 <div id='tagsPane' class='max-panel'>
 
@@ -149,12 +149,17 @@
                 </div>
                 
                 <div id='documentsPane' class="panel panel-default">
-                    <div class="panel-heading">
-                      <p>Documents</p>
+                    <div style="padding-top: 0px; padding-bottom: 0px;" id='listDocumentsButton' class="panel-heading clearfix">
+
+                        <div style="font-size: 20px;" class="has-feedback">
+                            <h4 class="form-control header-non-textbox">All Documents</h4>
+                            <span id="docIcon" class="form-control-feedback glyphicon glyphicon-chevron-left"></span>
                         </div>
-                    <div id='documentsMenu'>
-                        <button type='button' id='listDocumentsButton'>List all documents</button>
                     </div>
+
+                   <!-- <div id='documentsMenu'>
+                        <button type='button' id='listDocumentsButton'>List all documents</button>
+                    </div> -->
                     <div id='documentsMain'>
                         <div id='listDocumentsPane'></div>
                     </div>

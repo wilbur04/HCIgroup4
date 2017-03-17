@@ -10,16 +10,25 @@ body {
 /* using button rather than btn from bootstrap because all methods from Bindings.js
  are making use of <button> */
 button{
-    border-radius: 30px;
+    border-radius: 4px;
     background-color: #0a517f;
-    color: #f5f5f5;
-    text-transform: uppercase;
-    font-weight: 700;
-    padding: 10px 20px;
+    color: #e0f3ff;
+    font-weight: normal;
+    padding: 6px 12px;
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
 }
 Button:hover {
     transition: all 0.7s ease 0s;
     background-color: #1081cc;
+}
+Button:focus{
+    outline: 5px auto -webkit-focus-ring-color;
+    outline-offset: -2px;
 }
 Button:active {
     position:relative;
@@ -31,7 +40,7 @@ span{
 }
 .navbar-collapse >ul>li>a>span:hover{
     transition: all 0.7s ease 0s;
-    color: #f5f5f5;
+    color: #e0f3ff;
 }
 /*done edits by wilbur*/
 
@@ -44,25 +53,38 @@ span{
     width: 0%;
     float: inherit;
 }
+#tagsPane {
+    width: 30%;
+    height: 90vh;
+    float: left;
 
+}
 #documentsPane {
     width: 70%;
-    height: 100vh;
+    height: 85vh;
     float: right;
 
 }
 
-#tagsPane {
-    width: 30%;
-    height: 100vh;
-    float: left;
 
-}
 
 @media (max-width: 663px){
     #tagsPane{
         width: 200px;
     }
+}
+@media (max-width: 400px){
+    #documentsPane {
+        width: 100%;
+        float: inherit;
+        height: auto;
+
+    }
+    #tagsPane{
+        width: 100%;
+        height: auto;
+    }
+
 }
 
 /* User management */
@@ -241,7 +263,7 @@ span{
 }
 .navbar > .container-fluid > h1:hover{
     transition: all 1.5s ease 0s;
-    color: white;
+    color: #e0f3ff;
 }
 /* search bar*/
 .search{
@@ -273,6 +295,12 @@ span{
 }
 img {
     border-radius: 5px 5px 0 0;
+}
+.btn-primary{
+    background-color: #0a517f;
+}
+.btn-primary:focus{
+    background-color: #1081cc;
 }
 
 /* ----------------- End of Wilbur Style --------------*/

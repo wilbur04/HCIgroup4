@@ -243,6 +243,7 @@ function documentInformationPane (doc) {
     
     let updateButton = $('<button/>', {
       type: 'button',
+        class: 'btn btn-primary btn-sm',
       text: 'Update file',
       click: function () {
         $('<input/>', {
@@ -264,6 +265,7 @@ function documentInformationPane (doc) {
     editPane.append(updateButton);
     
     let editButton = $('<button/>', {
+      class: 'btn btn-warning btn-sm',
       type: 'button',
       text: 'Edit details',
       click: function () {
@@ -276,11 +278,12 @@ function documentInformationPane (doc) {
         editButton.detach();
         editPane.append(cancelButton).append(saveButton);
       }
-    });
+    })
     editPane.append(editButton);
     
     let cancelButton = $('<button/>', {
       type: 'button',
+        class: 'btn btn-danger btn-sm',
       text: 'Cancel',
       click: function () {
         owners.val(doc.ownersToString()).prop('readonly', true);
@@ -297,6 +300,7 @@ function documentInformationPane (doc) {
 
     let saveButton = $('<button/>', {
       type: 'button',
+        class: 'btn btn-success btn-sm',
       text: 'Save',
       click: function () {
         let ownerList = parseCSV(owners.val());
@@ -358,6 +362,7 @@ function documentInformationPane (doc) {
     let newComment = $('<textarea/>',{class:'form-control'});
     let addComment = $('<button/>', {
       type: 'button',
+        class: 'btn btn-primary btn-sm',
       text: 'Add comment',
       click: function () {
         if (newComment.val() != '') {
@@ -371,6 +376,7 @@ function documentInformationPane (doc) {
   };
   let showCommentsButton = $('<button/>', {
     type: 'button',
+      class: 'btn btn-primary btn-sm',
     text: 'Show comments',
     click: function () {
       if (commentsPane.is(':visible')) {
@@ -408,6 +414,7 @@ function documentInformationPane (doc) {
   
   let showHistoryButton = $('<button/>', {
     type: 'button',
+      class: 'btn btn-primary btn-sm',
     text: 'Show history',
     click: function () {
       if (historyPane.is(':visible')) {
